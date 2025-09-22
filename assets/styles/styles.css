@@ -503,7 +503,7 @@
 .prod-container {
   max-width: 1728px;
   margin: 0 auto;
-  padding: 0 clamp(24px,5vw,80px);
+  padding: 0 clamp(24px,2vw,80px);
   display: grid;
   grid-template-columns: 1fr 1fr;
   align-items: center;
@@ -678,5 +678,29 @@
 }
 
 .prod-subtitle.preach {
+  max-width: 38ch;
+}
+
+@media (max-width: 1700px) and (min-width: 1400px) {
+  .carousel {
+    width: 60%;
+    max-height: 600px; /* reduz ainda mais em 1600x900 */
+  }
+}
+
+
+.prod-section.school {
+  background: #7B85F4;        /* cor nova */
+}
+.school .prod-title,
+.school .prod-subtitle {
+  color: #ECF1ED;          /* cor de texto nova */
+}
+.school .prod-btn {
+  background: #E9A080;
+  color: #5b4d2c;
+}
+
+.prod-subtitle.school {
   max-width: 38ch;
 }
