@@ -655,3 +655,15 @@
   opacity: 0;
   transform: translateY(40px);
 }
+
+.prod-section.preach {
+  background: #fff;        /* cor nova */
+}
+.preach .prod-title,
+.preach .prod-subtitle {
+  color: #9A8A61;          /* cor de texto nova */
+}
+.preach .prod-btn {
+  background: #E9E2D4;
+  color: #5b4d2c;
+}
