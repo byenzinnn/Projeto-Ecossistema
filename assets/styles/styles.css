@@ -1,15 +1,19 @@
+@font-face {
+  font-family: 'NeueHaas1';
+  src: url('../fonts/NHaasGroteskTXPro-55Rg.ttf') format('truetype');
+}
+
 * {
   box-sizing: border-box;
   padding: 0;
   margin: 0;
-
   font-family: var(--main-font);
 }
 
 :root {
   --col1: rgb(97, 111, 98);
   --col2: #ecf1ed;
-  --main-font: "Neue Haas Grotesk Text Pro";
+  --main-font: "NeueHaas1", sans-serif;
 }
 
 

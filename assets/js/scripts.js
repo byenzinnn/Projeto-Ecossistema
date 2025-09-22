@@ -430,3 +430,60 @@ document.addEventListener('DOMContentLoaded', () => {
 
   els.forEach(el=>obs.observe(el));
 });
+
+document.addEventListener('DOMContentLoaded', () => {
+
+  // ---- animação dos CARDS ----
+  const cards = document.querySelectorAll('.cards-grid .card');
+  cards.forEach(c => {
+    c.style.opacity = '0';
+    c.style.transform = 'translateY(20px)';
+  });
+
+  const cardsObs = new IntersectionObserver((entries, obs) => {
+    entries.forEach(e => {
+      if (!e.isIntersecting) return;
+
+      anime({
+        targets: cards,
+        translateY: [20, 0],
+        opacity: [0, 1],
+        duration: 500,
+        delay: anime.stagger(120, { start: 150 }), // delay em cascata
+        easing: 'easeOutQuad'
+      });
+
+      obs.disconnect(); // roda 1x
+    });
+  }, { threshold: 0.2 });
+
+  const cardsWrap = document.querySelector('.cards-wrapper');
+  if (cardsWrap) cardsObs.observe(cardsWrap);
+
+
+  // ---- animação do ACCORDION (bloco inteiro) ----
+  const accSection = document.querySelector('.accordion-section');
+  if (accSection) {
+    accSection.style.opacity = '0';
+    accSection.style.transform = 'translateY(20px)';
+
+    const accObs = new IntersectionObserver((entries, obs) => {
+      entries.forEach(e => {
+        if (!e.isIntersecting) return;
+
+        anime({
+          targets: accSection,
+          translateY: [20, 0],
+          opacity: [0, 1],
+          duration: 600,
+          easing: 'easeOutQuad'
+        });
+
+        obs.disconnect();
+      });
+    }, { threshold: 0.2 });
+
+    accObs.observe(accSection);
+  }
+
+});
