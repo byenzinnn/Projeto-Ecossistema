@@ -57,7 +57,7 @@
 
 .main {
   position: relative;
-  background-image: url("/assets/img/BG1.png");
+  background-image: url("../img/BG1.png");
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
