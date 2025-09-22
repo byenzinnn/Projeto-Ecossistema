@@ -667,3 +667,7 @@
   background: #E9E2D4;
   color: #5b4d2c;
 }
+
+.prod-subtitle.preach {
+  max-width: 38ch;
+}
