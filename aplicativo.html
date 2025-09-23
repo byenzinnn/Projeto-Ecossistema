@@ -19,9 +19,9 @@
         <span></span><span></span><span></span>
       </button>
       <nav class="menu">
-        <a href="#inicio" class="pill">INICIO</a>
+        <a href="index.html">INICIO</a>
         <a href="ecossistema.html">ECOSSISTEMA</a>
-        <a href="aplicativo.html">APLICATIVO</a>
+        <a href="aplicativo.html" class="pill">APLICATIVO</a>
         <a href="#voluntariado">VOLUNTARIADO</a>
       </nav>
     </header>
@@ -111,59 +111,74 @@
       </div>
     </section>
 
-    <section class="app-feedback">
-      <div class="feedback-container">
-        <!-- Coluna Esquerda -->
-        <div class="feedback-text scroll-anim">
-          <h2 class="feedback-title">Feedback<br />usuários</h2>
-
-          <div class="feedback-ratings">
-            <p>Avaliações</p>
-
-            <div class="rating-card">
-              <span>Apple Store</span>
-              <div class="stars">★★★★★</div>
+    <section class="feedback">
+        <div class="feedback-container">
+          <!-- Coluna da Esquerda -->
+          <div class="feedback-left">
+            <h2 class="feedback-title scroll-anim">Feedback<br>usuários</h2>
+      
+            <div class="ratings scroll-anim">
+              <p>Avaliações</p>
+              <div class="rating-card scroll-anim">
+                <strong>Apple Store</strong><br>
+                ★★★★★
+              </div>
+              <div class="rating-card">
+                <strong>Google Play Store</strong><br>
+                ★★★★★
+              </div>
             </div>
-
-            <div class="rating-card">
-              <span>Google Play Store</span>
-              <div class="stars">★★★★★</div>
+          </div>
+      
+          <!-- Coluna da Direita: Carrossel -->
+          <div class="feedback-right">
+            <div class="user-carousel scroll-anim">
+              <div class="user-slide active">
+                <img src="./assets/img/IMGDEPO01.png" alt="Foto de Maria Souza" loading="lazy">
+                <div class="slide-overlay">
+                  <h3>Maria Souza</h3>
+                  <p>"O aplicativo tem sido essencial no meu devocional diário!"</p>
+                </div>
+              </div>
+      
+              <div class="user-slide">
+                <img src="./assets/img/IMGDEPO02.png" alt="Foto de João Silva" loading="lazy">
+                <div class="slide-overlay">
+                  <h3>João Silva</h3>
+                  <p>"Simples e prático. Me ajuda a manter minha rotina de oração."</p>
+                </div>
+              </div>
+      
+              <div class="user-slide">
+                <img src="./assets/img/IMGDEPO03.png" alt="Foto de Ana Paula" loading="lazy">
+                <div class="slide-overlay">
+                  <h3>Ana Paula</h3>
+                  <p>"Conteúdo inspirador e interface muito amigável!"</p>
+                </div>
+              </div>
             </div>
           </div>
         </div>
-
-        <!-- Coluna Direita: Carrossel -->
-        <div class="feedback-carousel scroll-anim">
-          <div class="carousel-feedback">
-            <div class="slide active">
-              <h3 class="user-name">Maria Souza</h3>
-              <p class="user-comment">
-                “O app me ajuda todos os dias na caminhada de fé. Simples e
-                completo!”
-              </p>
-            </div>
-            <div class="slide">
-              <h3 class="user-name">João Pereira</h3>
-              <p class="user-comment">
-                “Excelente! Os devocionais diários transformaram meu tempo com
-                Deus.”
-              </p>
-            </div>
-            <div class="slide">
-              <h3 class="user-name">Ana Clara</h3>
-              <p class="user-comment">
-                “Interface limpa e recursos incríveis. Recomendo a todos!”
-              </p>
-            </div>
+      </section>
+      <section class="download-app">
+        <div class="download-container">
+          <!-- Coluna Esquerda -->
+          <div class="download-left scroll-anim">
+            <p class="download-subtitle scroll-anim">Baixe agora</p>
+            <h2 class="download-title scroll-anim">O Dia Seguinte</h2>
+            <a href="https://qrco.de/aplicativoAEDL?trackSharing=1" class="download-btn scroll-anim">
+              Download <span>⬇</span>
+            </a>
           </div>
-          <div class="dots">
-            <span class="dot active"></span>
-            <span class="dot"></span>
-            <span class="dot"></span>
+      
+          <!-- Coluna Direita: mockups de celular -->
+          <div class="download-right">
+            <img src="./assets/img/mockup-celular2.png" alt="Tela 1 do app" class="phone-mock scroll-anim">
+            <img src="./assets/img/mockup-celular3.png" alt="Tela 2 do app" class="phone-mock scroll-anim">
           </div>
         </div>
-      </div>
-    </section>
+      </section>
+      
 
     <footer class="footer">
       <div class="footer-grid scroll-anim">
@@ -177,7 +192,7 @@
 
         <!-- Coluna 2 -->
         <nav class="footer-nav scroll-anim">
-          <a href="inicio.html">Início</a>
+          <a href="index.html">Início</a>
           <a href="ecossistema.html">Ecossistema</a>
           <a href="aplicativo.html">Aplicativo</a>
           <a href="#voluntariado">Voluntariado</a>

@@ -515,21 +515,24 @@ document.addEventListener('DOMContentLoaded', () => {
   dots.forEach((dot,i)=> dot.addEventListener('click', ()=> showSlide(i)));
 });
 
-document.querySelectorAll('.carousel-feedback').forEach(carousel => {
-  const slides = carousel.querySelectorAll('.slide');
-  const dots = carousel.nextElementSibling.querySelectorAll('.dot');
-  let idx = 0;
+document.addEventListener('DOMContentLoaded', () => {
+  const slides = document.querySelectorAll('.user-slide');
+  const dots = document.querySelectorAll('.dot');
+  let index = 0;
 
-  function show(i){
-    slides.forEach((s,k)=>{
-      s.classList.remove('active');  // garante que só um fique ativo
-      dots[k].classList.remove('active');
-    });
-    slides[i].classList.add('active');
-    dots[i].classList.add('active');
-    idx = i;
+  function showSlide(i) {
+    slides.forEach((s, idx) => s.classList.toggle('active', idx === i));
+    dots.forEach((d, idx) => d.classList.toggle('active', idx === i));
+    index = i;
   }
 
-  setInterval(()=> show((idx+1) % slides.length), 5000);
-  dots.forEach((dot,i)=> dot.addEventListener('click',()=> show(i)));
+  setInterval(() => {
+    let next = (index + 1) % slides.length;
+    showSlide(next);
+  }, 6000);
+
+  dots.forEach((dot, i) => {
+    dot.addEventListener('click', () => showSlide(i));
+  });
 });
+
