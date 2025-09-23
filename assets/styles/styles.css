@@ -152,6 +152,29 @@
   }
 }
 
+@media (min-width:900px){
+  .navbar {
+    /* remove o background de ponta a ponta */
+    background: none;
+  }
+  .navbar::before{
+    content:"";
+    position:absolute;
+    top:0;
+    left:50%;
+    transform:translateX(-50%);
+    width: 48%;               /* 👈 largura do efeito (ajuste ex: 80% ou 1000px) */
+    height:100%;
+    background:rgba(236,241,237,0.25);
+    backdrop-filter:blur(12px) saturate(150%);
+    -webkit-backdrop-filter:blur(12px) saturate(150%);
+    border-radius:12px;
+    border:1px solid rgba(255,255,255,0.2);
+    z-index:-1;               /* fica atrás dos links */
+  }
+}
+
+
 /* hero: texto sobre a imagem */
 .hero {
   position: absolute;
@@ -303,10 +326,7 @@
   height: 0;
   overflow: hidden;
 }
-.acc-item.open .acc-panel {
-  /* altura é animada via JS; isto serve só para no-CSS */
-  /* sem regra fixa aqui para não travar a animação */
-}
+
 .acc-inner {
   padding: clamp(8px, 1.8vw, 20px) 0 clamp(28px, 3vw, 40px) 0;
   max-width: 100%;
@@ -383,15 +403,26 @@
 
 .cards-grid{
   display:grid;
+  /* altura quase cheia da viewport  */
+  min-height: 90vh;        /* ajuste para 100vh se quiser ocupar tudo */
   width: 100%;
-  /* 2 colunas grandes: a da direita ocupa toda a altura */
   grid-template-columns: 1fr 1fr;
   grid-template-rows: 1fr 1fr;
   gap:clamp(16px,2vw,32px);
-  max-width:1728px;
   margin:0 auto;
   padding:clamp(24px,4vw,64px);
+
+  /* centraliza verticalmente dentro da section */
+  align-content: center;
 }
+
+section.cards-wrapper {
+  /* garante que a section envolvente acompanha a altura */
+  min-height: 90vh;     /* ou 100vh */
+  display: flex;
+  align-items: center;  /* centraliza a grid dentro da section */
+}
+
 
 .card{
   background: var(--col2);
@@ -407,14 +438,15 @@
   box-shadow:0 8px 20px rgba(0,0,0,.08);
 }
 
-.card-title{
+.card-title {
   color: var(--col1);
   font-family: var(--main-font);
   font-weight:400;
   line-height:1.1;
-  /* tamanho equilibrado para FHD e 4k */
-  font-size: clamp(20px,2.2vw,42px);
+  /* antes: clamp(20px,2.2vw,42px) */
+  font-size: clamp(24px, 3vw, 56px);  /* 👈 maior no mínimo e no máximo */
 }
+
 
 .destaque{
   /* card da direita ocupa as duas linhas */
@@ -715,7 +747,7 @@
 
 .app-hero-container {
   max-width: 1728px;
-  height: 70dvh;
+  height: 88dvh;
   margin: 0 auto;
   padding: 0 clamp(24px,4vw,80px);
   display: grid;
@@ -765,6 +797,14 @@
   .app-hero-subtitle {
     max-width: 90%;               /* garante que o texto não quebre para fora */
     margin: 0 auto;
+  }
+
+  .app-hero-text p{
+    display: none;
+  }
+
+  .app-text {
+    justify-items: center;
   }
 }
 
