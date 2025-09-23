@@ -387,14 +387,22 @@ document.addEventListener('DOMContentLoaded', () => {
   observer.observe(acc);
 });
 
-const slides = document.querySelectorAll('.carousel .slide');
-let idx = 0;
+document.addEventListener('DOMContentLoaded', () => {
+  document.querySelectorAll('.carousel').forEach(carousel => {
+    const slides = carousel.querySelectorAll('.slide');
+    let idx = 0;
 
-setInterval(()=>{
-  slides[idx].classList.remove('active');
-  idx = (idx + 1) % slides.length;
-  slides[idx].classList.add('active');
-}, 4000); // troca a cada 4s
+    // garante que apenas o primeiro comece visível
+    slides.forEach((s,i)=> s.classList.toggle('active', i===0));
+
+    setInterval(() => {
+      slides[idx].classList.remove('active');
+      idx = (idx + 1) % slides.length;
+      slides[idx].classList.add('active');
+    }, 4000);
+  });
+});
+
 
 document.addEventListener('DOMContentLoaded', () => {
   const els = document.querySelectorAll('.scroll-anim');

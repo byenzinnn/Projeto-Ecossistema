@@ -594,6 +594,13 @@
   .prod-card-top {
     height: 200px;
   }
+   /* aumenta a altura do carrossel para ficar proporcional ao texto */
+   .prod-card .carousel {
+    width: 100%;          /* ocupa toda a largura disponível */
+    max-width: 600px;      /* opcional: não deixa esticar demais */
+    aspect-ratio: 3/4;     /* um pouco mais “alto” que 3/5 */
+    margin-top: 24px;      /* espaço entre texto e carrossel */
+  }
 }
 
 @media (max-width: 768px) {
@@ -688,9 +695,24 @@
   }
 }
 
-
 .prod-section.school {
   background: #7B85F4;        /* cor nova */
+}
+.school .prod-title,
+.school .prod-subtitle {
+  color: #ECF1ED;          /* cor de texto nova */
+}
+.school .prod-btn {
+  background: #E9A080;
+  color: #5b4d2c;
+}
+
+.prod-subtitle.school {
+  max-width: 38ch;
+}
+
+.prod-section.vol {
+  background: #DB9E74;        /* cor nova */
 }
 .school .prod-title,
 .school .prod-subtitle {
