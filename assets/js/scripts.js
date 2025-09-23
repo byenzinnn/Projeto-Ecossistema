@@ -515,20 +515,21 @@ document.addEventListener('DOMContentLoaded', () => {
   dots.forEach((dot,i)=> dot.addEventListener('click', ()=> showSlide(i)));
 });
 
-document.addEventListener('DOMContentLoaded', () => {
-  const carousel = document.querySelector('.carousel-app');
-  if (!carousel) return;
-
+document.querySelectorAll('.carousel-feedback').forEach(carousel => {
   const slides = carousel.querySelectorAll('.slide');
-  const dots   = document.querySelectorAll('.dots .dot');
+  const dots = carousel.nextElementSibling.querySelectorAll('.dot');
   let idx = 0;
 
-  function showSlide(i){
-    slides.forEach((s,k)=> s.classList.toggle('active', k===i));
-    dots.forEach((d,k)=> d.classList.toggle('active', k===i));
+  function show(i){
+    slides.forEach((s,k)=>{
+      s.classList.remove('active');  // garante que só um fique ativo
+      dots[k].classList.remove('active');
+    });
+    slides[i].classList.add('active');
+    dots[i].classList.add('active');
     idx = i;
   }
 
-  setInterval(()=> showSlide((idx + 1) % slides.length), 5000);
-  dots.forEach((dot,i)=> dot.addEventListener('click', ()=> showSlide(i)));
+  setInterval(()=> show((idx+1) % slides.length), 5000);
+  dots.forEach((dot,i)=> dot.addEventListener('click',()=> show(i)));
 });
