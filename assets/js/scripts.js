@@ -386,7 +386,6 @@ document.addEventListener('DOMContentLoaded', () => {
   }, { threshold: 0.25 });
   observer.observe(acc);
 });
-
 document.addEventListener('DOMContentLoaded', () => {
   document.querySelectorAll('.carousel').forEach(carousel => {
     const slides = carousel.querySelectorAll('.slide');
@@ -402,7 +401,6 @@ document.addEventListener('DOMContentLoaded', () => {
     }, 4000);
   });
 });
-
 
 document.addEventListener('DOMContentLoaded', () => {
   const els = document.querySelectorAll('.scroll-anim');
@@ -494,4 +492,43 @@ document.addEventListener('DOMContentLoaded', () => {
     accObs.observe(accSection);
   }
 
+});
+
+document.addEventListener('DOMContentLoaded', () => {
+  const carousel = document.querySelector('.carousel-app');
+  if (!carousel) return;
+
+  const slides = carousel.querySelectorAll('.slide');
+  const dots   = carousel.querySelectorAll('.dot');
+  let idx = 0;
+
+  function showSlide(i){
+    slides.forEach((s,k)=> s.classList.toggle('active', k===i));
+    dots.forEach((d,k)=> d.classList.toggle('active', k===i));
+    idx = i;
+  }
+
+  setInterval(()=>{
+    showSlide((idx + 1) % slides.length);
+  }, 5000);
+
+  dots.forEach((dot,i)=> dot.addEventListener('click', ()=> showSlide(i)));
+});
+
+document.addEventListener('DOMContentLoaded', () => {
+  const carousel = document.querySelector('.carousel-app');
+  if (!carousel) return;
+
+  const slides = carousel.querySelectorAll('.slide');
+  const dots   = document.querySelectorAll('.dots .dot');
+  let idx = 0;
+
+  function showSlide(i){
+    slides.forEach((s,k)=> s.classList.toggle('active', k===i));
+    dots.forEach((d,k)=> d.classList.toggle('active', k===i));
+    idx = i;
+  }
+
+  setInterval(()=> showSlide((idx + 1) % slides.length), 5000);
+  dots.forEach((dot,i)=> dot.addEventListener('click', ()=> showSlide(i)));
 });
