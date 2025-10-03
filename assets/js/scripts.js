@@ -536,3 +536,44 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 });
 
+document.addEventListener('DOMContentLoaded', () => {
+  // Para cada carrossel de áreas na página
+  document.querySelectorAll('.areas-carousel').forEach((carousel) => {
+    const slides = carousel.querySelectorAll('.area-slide');  // <-- slides corretos
+    const dots   = carousel.querySelectorAll('.dot');
+    let index = 0;
+    let timer;
+
+    function showSlide(i) {
+      slides.forEach((s, idx) => s.classList.toggle('active', idx === i));
+      dots.forEach((d, idx)   => d.classList.toggle('active', idx === i));
+      index = i;
+    }
+
+    function start() {
+      stop();
+      timer = setInterval(() => {
+        const next = (index + 1) % slides.length;
+        showSlide(next);
+      }, 6000);
+    }
+    function stop() {
+      if (timer) clearInterval(timer);
+    }
+
+    // Dots clicáveis
+    dots.forEach((dot, i) => dot.addEventListener('click', () => {
+      showSlide(i);
+      start(); // reinicia o autoplay
+    }));
+
+    // (Opcional) pausa no hover em desktop
+    carousel.addEventListener('mouseenter', stop);
+    carousel.addEventListener('mouseleave', start);
+
+    // inicia
+    showSlide(0);
+    start();
+  });
+});
+
